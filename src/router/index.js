@@ -15,7 +15,7 @@ Vue.use(ElementUI);
 export default new Router({
   routes: [
     {
-      path: '/',
+      path: '/page0',
       name: 'page0',
       component: page0,
       children: [
@@ -37,7 +37,7 @@ export default new Router({
       ]
     },
     {
-      path: '/login',
+      path: '/',
       name: 'login',
       component: login
     }
