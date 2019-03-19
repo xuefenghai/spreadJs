@@ -4,6 +4,8 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 
+import $ from 'jquery'
+
 // 引入iview
 import iView from 'iview';
 import 'iview/dist/styles/iview.css';
