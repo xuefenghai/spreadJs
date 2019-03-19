@@ -1,4 +1,6 @@
-
+// 界面设计，逻辑设计大致完成
+// 前后台交互有待完善
+// 无法解决切换到普通登陆之后切换回刷卡登陆之后input框焦点事件失效的问题
 <template>
   <div id="hello">
     <!-- 页眉 -->
@@ -15,7 +17,7 @@
         <div v-if="login"  class="login-cardModel">
             <div class="login-cardModel-words">请刷卡登陆</div>
             <!-- 隐藏的输入框 -->
-            <input v-model="hiddenInput" id="hiddenInput1" type="text" autofocus>
+            <input v-model="hiddenInput" id="hiddenInput1" type="text" style="opacity: 0;height:20px" autofocus>
             <div class="login-cardModel-change" @click="changeModel()" v-loading.fullscreen.lock="fullscreenLoading">点我切换成普通登陆</div>
         </div>
         <!-- 登陆本体——普通模式 -->
@@ -70,6 +72,8 @@
             // console.log(password);
             if(username == '123' && password == '123')
                 this.$router.push('/page0');
+            else
+                this.hiddenInput = '';
         }
     },
     methods:{
@@ -161,18 +165,7 @@
         font-size: 50px;
         color: white;
         text-align: center;
-        line-height: 350px;
-    }
-    .login-normalModel-username{
-        font-size: 20px;
-        color: aliceblue;
-        line-height: 40px;
-        margin-left: 20px;
-    }
-    .login-normalModel-buttonBox{
-        margin-left: 20px;
-        margin-right: 20px;
-        line-height: 50px;
+        line-height: 330px;
     }
     .login-cardModel-change{
         color: white;
@@ -192,6 +185,17 @@
     }
     .login-normalModelBox{
         height: 350px;;
+    }
+    .login-normalModel-username{
+        font-size: 20px;
+        color: aliceblue;
+        line-height: 40px;
+        margin-left: 20px;
+    }
+    .login-normalModel-buttonBox{
+        margin-left: 20px;
+        margin-right: 20px;
+        line-height: 50px;
     }
     .login-normalModel-error{
         color: red;
